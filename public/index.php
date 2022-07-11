@@ -1,4 +1,5 @@
 <?php
 
-echo phpinfo();
+// Load Config
+require_once '../config/config.php';
 
