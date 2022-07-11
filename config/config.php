@@ -3,6 +3,7 @@
 define('SITE_NAME', 'Check24 Blog');
 
 //App Root
+// define('APP_ROOT', dirname(dirname(__FILE__)).'/check24');
 define('APP_ROOT', dirname(dirname(__FILE__)));
 define('URL_ROOT', '/');
 define('URL_SUBFOLDER', '');
