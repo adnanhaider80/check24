@@ -1,4 +1,11 @@
 {
+    "name": "check24/blog",
+    "description": "A Blog in which user can add, user can comment any article.",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
     "require": {
         "symfony/routing": "^5.4",
         "symfony/http-foundation": "^5.4"
