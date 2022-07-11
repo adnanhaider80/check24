@@ -7,7 +7,11 @@ use Symfony\Component\Routing\RouteCollection;
 
 class ArticleController
 {
-    // Show the product attributes based on the id.
+    public function index()
+    {
+        require_once APP_ROOT . '/views/article_new.php';
+    }
+    // Show the attributes based on the id.
 	public function showAction(int $id, RouteCollection $routes)
 	{
         $product = new Article();
@@ -15,6 +19,5 @@ class ArticleController
 
         require_once APP_ROOT . '/views/articles.php';
 	}
-
 
 }
