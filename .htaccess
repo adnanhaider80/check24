@@ -7,6 +7,7 @@ RewriteRule ^public/ - [L]
 # Static resources if they exist
 RewriteCond %{DOCUMENT_ROOT}/public/$1 -f
 RewriteRule (.+) public/$1 [L]
+RewriteCond %{REQUEST_URI} !\.(css|js)$ [NC]
 
 # Route all other requests
 RewriteRule (.*) public/index.php?route=$1 [L,QSA]
