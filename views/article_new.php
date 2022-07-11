@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link rel="stylesheet" href="./../public/assets/style.css">
+	<link rel="stylesheet" href="./../public/assets/simditor.css">
 </head>
 <body>
 
@@ -29,7 +30,7 @@
 					</div>
 					<div class="form-control">
 						<label for="user_comment">Text *:</label>
-						<div id="editor"></div>
+						<textarea required id="editor" placeholder="" autofocus></textarea>
 					</div>
 					<input type="submit" value="Submit">
 				</form>
@@ -37,5 +38,23 @@
 		</div>
 	</main>
 	
+	<script type="text/javascript" src="./../public/assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="./../public/assets/js/module.js"></script>
+	<script type="text/javascript" src="./../public/assets/js/hotkeys.js"></script>
+	<script type="text/javascript" src="./../public/assets/js/uploader.js"></script>
+	<script type="text/javascript" src="./../public/assets/js/simditor.js"></script>
+	<script>
+
+    var editor = new Simditor({
+  		textarea: $('#editor')
+  		//optional options
+	});
+
+
+    editor.on('valuechanged', function() {
+    	console.log(editor.getValue());
+    })
+	</script>
+
 </body>
 </html>

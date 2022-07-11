@@ -12,3 +12,8 @@ $routes->add('/', new Route(constant('URL_SUBFOLDER') . '/', array('controller' 
 $routes->add('overview', new Route(constant('URL_SUBFOLDER') . '/overview', array('controller' => 'OverviewController', 'method'=>'index')));
 
 
+$routes->add('login', new Route(constant('URL_SUBFOLDER') . 'login', array('controller' => 'AuthenticationController', 'method'=>'login')));
+$routes->add('logout', new Route(constant('URL_SUBFOLDER') . 'logout', array('controller' => 'AuthenticationController', 'method'=>'logout')));
+
+
+$routes->add('imprint', new Route(constant('URL_SUBFOLDER') . 'imprint', array('controller' => 'ImprintController', 'method'=>'index')));
