@@ -18,7 +18,7 @@
 	<main>
 		<div class="container">
 			<div style="max-width: 300px; margin: 0 auto;">
-			<form action="">
+			<form action="<?php echo BASE_URL; ?>is_login" method="post">
 				<div class="form-control">
 					<label for="user_name">User Name * :</label>
 					<input type="text" required name="user_name">

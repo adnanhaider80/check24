@@ -14,6 +14,8 @@ $routes->add('overview', new Route(constant('URL_SUBFOLDER') . '/overview', arra
 
 
 $routes->add('login', new Route(constant('URL_SUBFOLDER') . 'login', array('controller' => 'AuthenticationController', 'method'=>'login')));
+$routes->add('is_login', new Route(constant('URL_SUBFOLDER') . '/is_login', array('controller' => 'AuthenticationController', 'method'=>'is_login')));
+
 $routes->add('logout', new Route(constant('URL_SUBFOLDER') . 'logout', array('controller' => 'AuthenticationController', 'method'=>'logout')));
 
 

@@ -14,12 +14,20 @@ class AuthenticationController
 
     public function is_login()
 	{
-        // require_once APP_ROOT . '/views/overview.php';
+        //TODO: validate user name and password from database
+        if (true)
+        {
+            session_start();
+            $_SESSION["firstname"] = "john1";
+            $_SESSION["email"] = "john@example.com";
+            $_SESSION["id"] = 1;
+        }
 	}
 
     public function logout()
 	{
-        // require_once APP_ROOT . '/views/overview.php';
+        // destroy the session
+        session_destroy();
 	}
 
 }
