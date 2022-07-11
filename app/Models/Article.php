@@ -8,6 +8,7 @@ class Article
     protected $title;
     protected $text;
     protected $picture;
+    protected $created_at;
     protected $dbConnection;
     protected $errorMessage;
 
@@ -46,6 +47,11 @@ class Article
         return $this->picture;
     }
 
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
     // SET METHODS
     public function setId($id)
     {
@@ -67,16 +73,40 @@ class Article
         $this->picture = $image;
     }
 
+    public function setCreatedAt(string $unix)
+    {
+        $this->created_at = $unix;
+    }
+
     // CRUD OPERATIONS
     public function create(array $data)
     {
+        //qucik hack 
+        // use 1 for author
+        // later on we will get this detail from session 
+        $author = 1;
+        $created_at = time();
 
+        extract($data);
+        //TODO: exception handling
+        $sql = "INSERT INTO articles (`title`, `text`, `picture`, `author`, `created_at`) 
+        VALUES ('$title', '$text', '$picture', $author, $created_at)";
+
+        if ($this->dbConnection->query($sql) === TRUE) 
+        {
+            $location = BASE_URL.'overview';
+            header("Location: $location");
+        } 
+        else 
+        {
+            throw new Exception("Error: " . $sql . "<br>" . $conn->error);
+        }
     }
 
     public function readAll()
     {
         $resposne = [];
-        $sql = "SELECT * FROM articles LIMIT 0, 3";
+        $sql = "SELECT * FROM articles ORDER BY created_at DESC LIMIT 0, 3";
         //TODO: pagination remanining now
         $result = $this->dbConnection->query($sql);
 
@@ -86,14 +116,10 @@ class Article
             // output data of each row
             while($row = $result->fetch_assoc()) 
             {
-                $this->setId($row['id']);
-                $this->setTitle($row['title']);
-                $this->setText($row['text']);
-                $this->setPicture($row['picture']);
                 //TODO: instead of ID get name of author 
                 //$row['author'];
 
-                $resposne[] = $this;
+                $resposne[] = $row;
                 //TODO: database connection information should not part of object while sending for views
             }
         }
@@ -114,6 +140,7 @@ class Article
                 $this->setTitle($row['title']);
                 $this->setText($row['text']);
                 $this->setPicture($row['picture']);
+                $this->setCreatedAt($row['created_at']);
                 //TODO: instead of ID get name of author 
                 //$row['author'];
 

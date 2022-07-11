@@ -19,19 +19,19 @@
 		<div class="container">
 			<section class="articles_list">
 				<?php foreach($articles as $article) { ?>
-					<a href="article/<?php echo $article->getId(); ?>" >
+					<a href="article/<?php echo $article['id']; ?>" >
 						<article class="single_article">
 					
 						<div>
-							<span class="top_info">11/06/02, 8:40h - <?php echo $article->getTitle(); ?></span>
-							<p><?php echo $article->getText(); ?></p>
+							<span class="top_info"><?php echo gmdate("Y-m-d\ H:i:s ", $article['created_at']); ?> - <?php echo $article['title']; ?></span>
+							<p><?php echo $article['text']; ?></p>
 							<div class="bottom_information">
 								<span>Author: some name</span>
 								<span>Kommer : 2</span>
 							</div>
 						</div>
 				
-						<img width="200" height="100" src="<?php echo $article->getPicture(); ?>" alt="">
+						<img width="200" height="100" src="<?php echo $article['picture']; ?>" alt="">
 						</article>
 					</a>
 				

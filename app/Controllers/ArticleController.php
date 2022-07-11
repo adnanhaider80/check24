@@ -20,4 +20,11 @@ class ArticleController
         require_once APP_ROOT . '/views/articles.php';
 	}
 
+    public function save()
+    {
+        $product = new Article();
+        $product->create($_POST);
+        //TODO: we should use try catch block here
+    }
+
 }

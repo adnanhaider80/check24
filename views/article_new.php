@@ -19,18 +19,18 @@
 	<main>
 		<div class="container">
 			<div style="background-color: #f1f1f1;border: solid 1px #ddd; padding: 20px; border-radius: 10px;">
-				<form action="">
+				<form action="<?php echo BASE_URL; ?>article/save" method="post">
 					<div class="form-control">
 						<label for="user_name">Title :</label>
-						<input type="text" required name="user_name">
+						<input type="text" required name="title">
 					</div>
 					<div class="form-control">
 						<label for="user_url">Link:</label>
-						<input type="text" required name="user_url">
+						<input type="url" required name="picture">
 					</div>
 					<div class="form-control">
 						<label for="user_comment">Text *:</label>
-						<textarea required id="editor" placeholder="" autofocus></textarea>
+						<textarea name="text" required id="editor" placeholder="" autofocus></textarea>
 					</div>
 					<input type="submit" value="Submit">
 				</form>
